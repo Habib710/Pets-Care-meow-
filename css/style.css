@@ -57,4 +57,23 @@ nav ul li a:hover {
     font-size: 22px;
     color: rgb(251, 251, 251);
 }
+.home-sec{
+    height: 70vh;
+    width: 100%;
+background-image: linear-gradient(to left, rgba(86, 90, 132, 0.289) 20%,
+rgb(201, 198, 198)), url(../img/0x0.webp);
 
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+
+
+}
+.HEADING{
+
+    padding: 20PX;
+
+    font-size: 65PX;
+    font-weight: 800;
+    color: #08284A;
+}
