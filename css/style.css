@@ -1,0 +1,60 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(255, 255, 255);
+}
+header{
+    padding: 35px;
+    background-color: #08284A;
+  
+}
+.logo{
+ 
+    height: 15%;
+    width: 13%;
+}
+nav {
+    display: flex;
+ 
+    justify-content: space-between;
+
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    margin-right: 120px;
+    
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 8px 15px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 950px;
+}
+
+nav ul li a:hover {
+    color: rgb(255, 118, 6);
+    transition: .6s;
+}
+.fa-search {
+    margin-right: 20px;
+    font-size: 22px;
+    color: rgb(247, 247, 247);
+
+}
+
+.fa-shopping-cart {
+    font-size: 22px;
+    color: rgb(251, 251, 251);
+}
+
