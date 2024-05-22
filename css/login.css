@@ -1,0 +1,48 @@
+body {
+    text-align: center;
+  }
+  .main-divs{
+
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .main-divs div {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+    display: inline-block;
+  
+    padding: 1px;
+  }
+  .input {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(204, 202, 199);
+  }
+  .form p {
+    font-size: 12px;
+    font-weight: 700;
+  }
+  form {
+    padding: 35px;
+  }
+  
+  .form-div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-radius: 0px 40px 0px 40px;
+    box-shadow: rgba(39, 38, 38, 0.247) 0px 5px 15px;
+  }
+  
+  
+  .img-divs {
+    text-align: center;
+  }
+  .img-divs img {
+    padding: 20px;
+  }
+  .sing-in-img {
+    padding-right: 0px;
+  }
+  
