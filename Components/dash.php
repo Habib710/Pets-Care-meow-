@@ -29,12 +29,145 @@ if (!isset($_SESSION['uname'])) {
                 <i class="fas fa-shopping-cart"></i>
             </ul>
         </nav>
+        <style>
+            .card {
+               
+            border: 2px solid azure;
+            border-radius: 10px;
+            padding: 20px;
+           
+            margin-bottom: 20px;
+            position: relative;
+            background-color:white ;
+            box-shadow: 8 10px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .card p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .btn-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .btn-edit,
+        .btn-delete {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .btn-edit {
+            background-color: #007bff;
+            margin-right: 10px;
+        }
+
+        .btn-delete {
+            background-color: #dc3545;
+        }
+
+        .btn-edit:hover,
+        .btn-delete:hover {
+            background-color: darken(currentColor, 10%);
+        }
+        .h1{
+            text-align: center;
+            margin: 20px;
+            padding: 20px;
+        }
+
+    </style>
     </header>
 
-    <h1>Welcome, <?php echo htmlspecialchars($_SESSION['uname']); ?>!</h1>
+    <h1 class="h1">Welcome To Dashboard, <br> <?php echo htmlspecialchars($_SESSION['uname']); ?>!</h1>
 
     <section>
-        <!-- Your main dashboard content goes here -->
+    <div id="data-container">
+        <!-- Data fetched from the database will be displayed here -->
+    </div>
+
+    <!-- Include jQuery for easier AJAX handling -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to fetch data from the PHP file
+            function fetchData() {
+                $.ajax({
+                    url: '../DB/fetch_data.php',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        // Process the retrieved data and display it on the dashboard
+                        if(data.length > 0) {
+                            var html = '';
+                            data.forEach(function(item) {
+                                html += '<div class="card">';
+                                html += '<h3>Pet Name: ' + item.pet_name + '</h3>';
+                                html += '<p>Owner: ' + item.owner_name + '</p>';
+                                html += '<p>Pet Type: ' + item.pet_type + '</p>';
+                                html += '<p>Gender: ' + item.gender + '</p>';
+                                html += '<p>Age: ' + item.age + '</p>';
+                                html += '<p>Service Duration: ' + item.service_duration + ' days</p>';
+                                html += '<p>Owner Address: ' + item.owner_address + '</p>';
+                                html += '<p>Contact Number: ' + item.contact_number + '</p>';
+                                html += '<button class="btn-edit" data-id="' + item.id + '">Edit</button>';
+                                html += '<button class="btn-delete" data-id="' + item.id + '">Delete</button>';
+                                html += '</div>';
+                            });
+                            $('#data-container').html(html);
+                        } else {
+                            $('#data-container').html('<p>No data available</p>');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            }
+
+            // Initial data fetch
+            fetchData();
+       
+            // Event listener for edit button
+            $(document).on('click', '.btn-edit', function() {
+                var id = $(this).data('id');
+                // Redirect to edit page with the selected ID
+                window.location.href = '../DB/edit.php?id=' + id;
+            });
+
+            // Event listener for delete button
+            $(document).on('click', '.btn-delete', function() {
+                var id = $(this).data('id');
+                // AJAX request to delete data
+                $.ajax({
+                    url: '../DB/delete.php',
+                    type: 'POST',
+                    data: { id: id },
+                    success: function(response) {
+                        // Refresh data after deletion
+                        fetchData();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+
+   
     </section>
 
     <!-- Footer Section -->

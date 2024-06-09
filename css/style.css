@@ -358,3 +358,21 @@ nav ul li a:hover {
   padding: 15px;
   color: #08284a;
 }
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.card h3 {
+  margin-top: 0;
+}
+.btn-edit {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5px;
+}
