@@ -132,6 +132,9 @@ nav ul li a:hover {
     rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
     rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
+.chaild-div:hover{
+
+}
 .body-sec-1 {
   margin-top: 70px;
   padding: 55px;
@@ -206,7 +209,7 @@ nav ul li a:hover {
       rgba(86, 90, 132, 0.289) 20%,
       rgb(201, 198, 198)
     ),
-    url(/img/360_F_390123053_dLdh2YggDNrXYlGP9OgBGfTdIwUKU2Hx.jpg);
+    url(../img/360_F_390123053_dLdh2YggDNrXYlGP9OgBGfTdIwUKU2Hx.jpg);
    
 }
 .img-div p {

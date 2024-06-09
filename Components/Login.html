@@ -16,11 +16,11 @@
         <nav class="nav">
           <img class="logo" src="../img/logo.svg" alt="img" />
           <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="dash.html">DashBord</a></li>
+            <li><a href="../index.php">Home</a></li>
+            <li><a href="dash.php">DashBord</a></li>
             <li><a href="About.html">About</a></li>
             <li><a href="contract.html">Contract</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="logout.php">Logout</a></li>
             <i class="fas fa-search"></i>
             <i class="fas fa-shopping-cart"></i>
           </ul>
@@ -36,14 +36,14 @@
                        <img src="../img/funny-happy-dogs-cats-peeking-600nw-1405890710.webp" alt="img">
                             </div>
                    <div class="form-main">
-                   <form action="#">
+                   <form action="../DB/login.php" method="post">
                    <h2>Login</h2><br>
                      <p>USER NAME</p>
-                     <input class="input" type="text" placeholder="User Name"> 
+                     <input class="input" type="text"  id="uname" name="uname" required placeholder="User Name"> 
                       <p>PASSWORD</p>
-                     <input class="input" type="password" placeholder="Password">
+                     <input class="input" type="password" id="password" name="password" required placeholder="Password">
                      <br> 
-                     <button class="btn-grad" type="submit" >Login </button>
+                     <button class="btn-grad" type="submit" value="Login">Login </button>
                      <br>
                      <p> <a href="#">Forget Password ? </a></p>
                      <p>Not a Member ? <span> <a href="signin.html">Sign Up Now</a></span></p>
@@ -77,6 +77,7 @@
               <h4>Contact Us</h4>
               <ul>
                   <li>Email: mdhabib71024@gmail.com</li>
+                  <li> rakib@gmail.com</li>
                   <li>Phone: +880 01571024601</li>
                   <li>Address:#123 Pet Street, Pet City, PC GUB</li>
               </ul>
@@ -100,7 +101,7 @@
         
         
         <div class="copyright">
-          <p>&copy; 2024 ,Md Habibullah. All rights reserved.</p>
+          <p>&copy; 2024 ,Md Habibullah ,Rakib. All rights reserved.</p>
         </div>
        
             </section>

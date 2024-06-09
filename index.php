@@ -1,3 +1,11 @@
+
+<?php
+session_start();
+if (!isset($_SESSION['uname'])) {
+    header("Location: Components/Login.html");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,10 +27,10 @@
         <img class="logo" src="img/logo.svg" alt="img" />
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="Components/dash.html">DashBord</a></li>
+          <li><a href="Components/dash.php">DashBord</a></li>
           <li><a href="Components/About.html">About</a></li>
           <li><a href="Components/contract.html">Contract</a></li>
-          <li><a href="Components/Login.html">Login</a></li>
+          <li><a href="Components/logout.php">Logout</a></li>
           <i class="fas fa-search"></i>
           <i class="fas fa-shopping-cart"></i>
         </ul>
@@ -75,7 +83,7 @@
           <button class="btn-grad">About us</button>
         </div>
         <div class="body-sec-2-child">
-          <img src="/img/blog9.jpg" alt="" />
+          <img src="img/blog9.jpg" alt="" />
         </div>
       </div>
     </section>
@@ -88,19 +96,19 @@
 
             <div class="card">
                 
-                <img width="70%" src="/img/1322531722-612x612.jpg" alt=""><br>
+                <img width="70%" src="img/1322531722-612x612.jpg" alt=""><br>
                 <h1>Care</h1> 
             </div>
             <div class="card">
-              <img width="70%" src="/img/images (1).png" alt=""><br>
+              <img width="70%" src="img/images (1).png" alt=""><br>
                 <h1>Foods</h1>
             </div>
             <div class="card">
-              <img width="70%" src="/img/images222.jpg" alt=""><br>
+              <img width="70%" src="img/images222.jpg" alt=""><br>
                 <h1>Training </h1>
             </div>
             <div class="card">
-              <img width="70%" src="/img/images.png" alt=""><br>
+              <img width="70%" src="img/images.png" alt=""><br>
                 <h1>Veterinary </h1>
             </div>
             
@@ -109,7 +117,7 @@
 
     <!-- just a pic in middle -->
     <section class="just">
-        <img width="100%" src="/img/banner-5-asset-1.webp" alt="img">
+        <img width="100%" src="img/banner-5-asset-1.webp" alt="img">
         <div class="jsut-div">
             <h1>
            Find best sercive & Descount from us. NEW!<br> Price <del class="del">20$</del> for all upto  <span class="grren"> 15$ </span> Only
@@ -127,6 +135,8 @@
     </section>
 <!-- from section -->
     <section>
+
+
         <div class="heading-from">
           <h1>
             Get in Touch
@@ -140,7 +150,7 @@
           </div>
           
 
-            <div class="form-container">
+            <form class="form-container" id="pet-care-form" action="./DB/submit_form.php" method="POST">
               <h2 class="heading-from">Pet Care Form</h2>
              
                   <div class="form-group">
@@ -151,7 +161,8 @@
                 
                   <div class="form-group">
                       <label for="owner-name">Owner Name</label>
-                      <input type="text" id="owner-name" name="owner-name" required>
+                      <input type="text" id="owner-name" disabled
+                       name="owner-name" placeholder="<?php echo htmlspecialchars($_SESSION['uname']); ?>">
                   </div>
           
             
@@ -219,7 +230,7 @@
         <h2>Happy Clients</h2>
     
         <div class="client">
-            <img src="/img/979251076-612x612.jpg" alt="Client Photo">
+            <img src="img/979251076-612x612.jpg" alt="Client Photo">
             <div class="testimonial">
                 <p>"Pawsitive Care has been incredible! Their training tips helped my dog become so well-behaved."</p>
                 <div class="client-name">- Sarah J.</div>
@@ -228,7 +239,7 @@
     
   
         <div class="client">
-            <img src="/img/cats-dogs-peeking-sign-sized-web-cover_908985-53306.avif" alt="Client Photo">
+            <img src="img/cats-dogs-peeking-sign-sized-web-cover_908985-53306.avif" alt="Client Photo">
             <div class="testimonial">
                 <p>"The veterinary advice section provided the exact information I needed when my cat was sick. Thank you!"</p>
                 <div class="client-name">- Michael B.</div>
@@ -236,7 +247,7 @@
         </div>
     
         <div class="client">
-            <img src="/img/blog9.jpg" alt="Client Photo">
+            <img src="img/blog9.jpg" alt="Client Photo">
             <div class="testimonial">
                 <p>"I love the product reviews! They helped me choose the best items for my pets. Highly recommended!"</p>
                 <div class="client-name">- Emily R.</div>
@@ -244,7 +255,7 @@
         </div>
     </div>
     <div class="">
-      <img width="100%" src="/img/o-1345473066-612x612.jpg" alt="img">
+      <img width="100%" src="img/o-1345473066-612x612.jpg" alt="img">
     </div>
     </section>
 
@@ -268,6 +279,7 @@
       <h4>Contact Us</h4>
       <ul>
           <li>Email: mdhabib71024@gmail.com</li>
+          <li> rakib@gmail.com</li>
           <li>Phone: +880 01571024601</li>
           <li>Address:#123 Pet Street, Pet City, PC GUB</li>
       </ul>
@@ -291,7 +303,7 @@
 
 
 <div class="copyright">
-  <p>&copy; 2024 ,Md Habibullah. All rights reserved.</p>
+  <p>&copy; 2024 ,Md Habibullah, Rakib . All rights reserved.</p>
 </div>
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     </section>
