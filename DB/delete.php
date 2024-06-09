@@ -7,11 +7,10 @@ if (!isset($_SESSION['uname'])) {
 
 include './db.php';
 
-// Check if ID parameter is set
 if(isset($_POST['id'])) {
     $id = $_POST['id'];
     
-    // Delete record with the specified ID
+
     $sql = "DELETE FROM pet_care_forms WHERE id = $id";
 
     if ($conn->query($sql) === TRUE) {

@@ -7,17 +7,17 @@ if (!isset($_SESSION['uname'])) {
 
 include './db.php';
 
-// Check if ID parameter is set
+
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
     
-    // Fetch data for the selected ID
+    
     $sql = "SELECT * FROM pet_care_forms WHERE id = $id";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        // Display the form with the fetched data pre-filled for editing
+       
         echo '<form method="post" action="update.php">';
         echo '<input type="hidden" name="id" value="' . $row['id'] . '">';
         echo '<label for="pet-name">Pet Name:</label>';

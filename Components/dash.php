@@ -95,21 +95,21 @@ if (!isset($_SESSION['uname'])) {
 
     <section>
     <div id="data-container">
-        <!-- Data fetched from the database will be displayed here -->
+       
     </div>
 
-    <!-- Include jQuery for easier AJAX handling -->
+   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            // Function to fetch data from the PHP file
+          
             function fetchData() {
                 $.ajax({
                     url: '../DB/fetch_data.php',
                     type: 'GET',
                     dataType: 'json',
                     success: function(data) {
-                        // Process the retrieved data and display it on the dashboard
+                      
                         if(data.length > 0) {
                             var html = '';
                             data.forEach(function(item) {
@@ -137,26 +137,26 @@ if (!isset($_SESSION['uname'])) {
                 });
             }
 
-            // Initial data fetch
+          
             fetchData();
        
-            // Event listener for edit button
+            
             $(document).on('click', '.btn-edit', function() {
                 var id = $(this).data('id');
-                // Redirect to edit page with the selected ID
+                
                 window.location.href = '../DB/edit.php?id=' + id;
             });
 
-            // Event listener for delete button
+           
             $(document).on('click', '.btn-delete', function() {
                 var id = $(this).data('id');
-                // AJAX request to delete data
+                
                 $.ajax({
                     url: '../DB/delete.php',
                     type: 'POST',
                     data: { id: id },
                     success: function(response) {
-                        // Refresh data after deletion
+                       
                         fetchData();
                     },
                     error: function(xhr, status, error) {
